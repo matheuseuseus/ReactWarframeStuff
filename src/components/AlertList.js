@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AlertList = (props) => {
-    const { alerts } = props;
+    const { alerts, nodes } = props;
 
     return(
         <div className="AlertList">
@@ -11,7 +11,10 @@ const AlertList = (props) => {
                 :
                     alerts.map((alert) => 
                         <div className="card" key={alert._id}>
-                            <h2>{alert.MissionInfo.location}</h2>
+                            <h2>
+                                {nodes.toString().substring(nodes.indexOf('":"', nodes.indexOf(alert.MissionInfo.location + '":"')) + 3, 
+                                                            nodes.indexOf('-', nodes.indexOf(alert.MissionInfo.location + '":"')) - 3)}
+                            </h2>
                             <h3>{alert.MissionInfo.missionType}</h3>
                             Rewards<br />
                             Credits: {alert.MissionInfo.missionReward.credits}<br />

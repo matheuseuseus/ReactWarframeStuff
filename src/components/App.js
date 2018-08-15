@@ -7,7 +7,8 @@ class App extends Component {
     super();
 
     this.state = {
-      alerts: []
+      alerts: [],
+      nodes: []
     }
   }
 
@@ -17,13 +18,20 @@ class App extends Component {
       .then(data => {
         this.setState({ alerts: data })
       })
+
+    fetch(`https://desolate-waters-47187.herokuapp.com/http://deathsnacks.com/wf/api/nodes.php`, {
+    })
+      .then(res => res.text())
+      .then(data => {
+        this.setState({ nodes: data })
+      })
   }
   
   render() {
     return(
       <div className="App">
-        { this.state.alerts.Alerts &&
-          <AlertList alerts={this.state.alerts.Alerts} />
+        { this.state.alerts.Alerts && this.state.nodes &&
+          <AlertList alerts={this.state.alerts.Alerts} nodes={this.state.nodes} />
         }
       </div>
     )
