@@ -28,8 +28,7 @@
 }
 
 .card {
-  padding-bottom: 20px;
-  margin: 0 0 50px 200px;
-  width: 400px;
   border: 1px solid #222;
+  margin: 0 200px 20px 200px;
+  padding-bottom: 20px;
 }
